@@ -67,6 +67,7 @@
                                                 <th scope="col">Comapany</th>
                                                 <th scope="col">Mobail</th>
                                                 <th scope="col">Message</th>
+                                                <th scope="col">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -96,6 +97,22 @@
                                                     <td>
                                                         <%=e.message%>
                                                     </td>
+                                                    <td>
+                                                        <a
+                                                          href="/deleteData?id=<%= e.id %>"
+                                                          class="text-decoration-none"
+                                                          ><button class="btn btn-delete">
+                                                            <i class="ri-delete-bin-6-fill"></i> Delete
+                                                          </button></a
+                                                        >
+                                                        <a
+                                                          href="/editData?id=<%= e.id %>"
+                                                          class="text-decoration-none"
+                                                          ><button class="btn btn-edit">
+                                                            <i class="ri-pencil-fill"></i> Edit
+                                                          </button></a
+                                                        >
+                                                      </td>
                                                 </tr>
                                                 <% }) %>
                                         </tbody>

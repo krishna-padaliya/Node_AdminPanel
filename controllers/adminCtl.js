@@ -25,6 +25,21 @@ module.exports.addData = async (req, res) => {
     data ? res.redirect("back") : console.log("data not submitted");
 }
 
+module.exports.delete = async(req,res) =>{
+    let deleteData = await admin.findByIdAndDelete(req.query.id);
+    deleteData ? res.redirect("back") : console.log("Data is not deleted")
+}
+
+module.exports.edit = async(req,res) =>{
+    let edit = await admin.findById(req.query.id);
+    edit ? res.render("editAdmin", { edit }) : console.log("Please try again, Data not found !")
+}
+
+module.exports.update = async(req,res) =>{
+     let update = await admin.findByIdAndUpdate(req.query.id, req.body);
+    update ? res.redirect("/viewAdmin") : console.log("Data not updated");
+}
+
 module.exports.loginInfo = (req, res) => {
     res.render("dashboard")
 }
